@@ -503,6 +503,7 @@ RULE(.class = "qutebrowser", .tags = 1 << 2)
 RULE(.class = "Gimp", .tags = 1 << 3)
 RULE(.class = "steam", .tags = 1 << 4)
 RULE(.class = MUSICPLAYER, .tags = 1 << 5)
+RULE(.title = "tmux", .tags= 0 << 1)
 #if RENAMED_SCRATCHPADS_PATCH
 RULE(.instance = "spterm", .scratchkey = 's', .isfloating = 1)
 #elif SCRATCHPADS_PATCH
