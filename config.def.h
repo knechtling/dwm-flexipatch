@@ -4,6 +4,7 @@
 #define TERMINAL "st"
 #define TERMCLASS "St"
 #define BROWSER "firefox"
+#define MUSICPLAYER "Sonixd"
 
 /* appearance */
 #if ROUNDED_CORNERS_PATCH
@@ -161,9 +162,9 @@ static void (*bartabmonfns[])(Monitor *) = { NULL /* , customlayoutfn */ };
 #if BAR_PANGO_PATCH
 static const char font[]                 = "monospace 10";
 #else
-static const char *fonts[]               = { "monospace:size=10", "NotoColorEmoji:pixelsize=10:antialias=true:autohint=true" };
+static const char *fonts[]               = { "monospace:size=14", "NotoColorEmoji:pixelsize=10:antialias=true:autohint=true" };
 #endif // BAR_PANGO_PATCH
-static const char dmenufont[]            = "monospace:size=10";
+static const char dmenufont[]            = "monospace:size=14";
 
 static char c000000[]                    = "#000000"; // placeholder value
 
@@ -450,8 +451,8 @@ static char tagicons[][NUMTAGS][MAX_TAGLEN] =
 static char *tagicons[][NUMTAGS] =
 #endif // NAMETAG_PATCH
 {
-[DEFAULT_TAGS]        = { "1", "2", "3", "4", "5", "6", "7", "8", "9" },
-[ALTERNATIVE_TAGS]    = { "A", "B", "C", "D", "E", "F", "G", "H", "I" },
+[DEFAULT_TAGS]    = { "🖥️", "✏️", "🌍", "🖌️", "🎮", "🎵", "", "👨", "👩" },
+[ALTERNATIVE_TAGS]        = { "1", "2", "3", "4", "5", "6", "7", "8", "9" },
 [ALT_TAGS_DECORATION] = { "<1>", "<2>", "<3>", "<4>", "<5>", "<6>", "<7>", "<8>", "<9>" },
 };
 
@@ -498,8 +499,10 @@ RULE(.wintype = WTYPE "DIALOG", .isfloating = 1)
 RULE(.wintype = WTYPE "UTILITY", .isfloating = 1)
 RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
 RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
-RULE(.class = "Gimp", .tags = 1 << 4)
-RULE(.class = "$BROWSER", .tags = 1 << 7)
+RULE(.class = "qutebrowser", .tags = 1 << 2)
+RULE(.class = "Gimp", .tags = 1 << 3)
+RULE(.class = "steam", .tags = 1 << 4)
+RULE(.class = MUSICPLAYER, .tags = 1 << 5)
 #if RENAMED_SCRATCHPADS_PATCH
 RULE(.instance = "spterm", .scratchkey = 's', .isfloating = 1)
 #elif SCRATCHPADS_PATCH
@@ -1222,7 +1225,7 @@ STACKKEYS(MODKEY|ShiftMask,                    push)
 { MODKEY|Mod1Mask|ControlMask,  XK_period,     tagswapmon,             {.i = -1 } },
 #endif // TAGSWAPMON_PATCH
 #if BAR_ALTERNATIVE_TAGS_PATCH
-{ MODKEY,                       XK_n,          togglealttag,           {0} },
+{ MODKEY|ShiftMask,             XK_b,          togglealttag,           {0} },
 #endif // BAR_ALTERNATIVE_TAGS_PATCH
 #if NAMETAG_PATCH
 { MODKEY|ShiftMask,             XK_n,          nametag,                {0} },
