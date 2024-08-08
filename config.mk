@@ -32,15 +32,15 @@ FREETYPEINC = /usr/include/freetype2
 XRENDER = -lXrender
 
 # Uncomment this for the mdpcontrol patch / MDPCONTROL_PATCH
-#MPDCLIENT = -lmpdclient
+MPDCLIENT = -lmpdclient
 
 # Uncomment for the pango patch / BAR_PANGO_PATCH
-#PANGOINC = `pkg-config --cflags xft pango pangoxft`
-#PANGOLIB = `pkg-config --libs xft pango pangoxft`
+PANGOINC = `pkg-config --cflags xft pango pangoxft`
+PANGOLIB = `pkg-config --libs xft pango pangoxft`
 
 # Uncomment for the ipc patch / IPC_PATCH
-#YAJLLIBS = -lyajl
-#YAJLINC = -I/usr/include/yajl
+YAJLLIBS = -lyajl
+YAJLINC = -I/usr/include/yajl
 
 # Uncomment this for the rounded corners patch / ROUNDED_CORNERS_PATCH
 XEXTLIB = -lXext
